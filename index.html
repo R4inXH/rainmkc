@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAIN</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="rain_mkc/css/bootstrap.css" />
+
+  <!-- Custom styles for this template -->
+  <!-- responsive style -->
+  <link href="rain_mkc/css/responsive.css" rel="stylesheet" />
+  <link href="rain_mkc/css/form.css" rel="stylesheet" />
+
+</head>
+<body class="bg-dark">
+    <section class="h-100 gradient-form" style="background-color: #121212;">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-10">
+              <div class="card rounded-3 text-black">
+                <div class="row g-0">
+                  <div class="col-lg-6">
+                    <div class="card-body p-md-5 mx-md-4">
+      
+                      <div class="text-center">
+                        <img src="rain_mkc/images/cats.jpg" class="about-img rounded mx-auto d-block"
+                          style="width: 185px;" alt="logo">
+                        <h4 class="text-capitalize mt-2 mb-3 pb-1">Tentukan Minat dan bakat mu</h4>
+                      </div>
+      
+                      <form>
+                        <p class="text-center">Pilih
+                        </p>
+      
+                        <div class="form-outline mb-4">
+                            <label for="web1">
+                                <input type="checkbox" id="web1" name="web[]" value="cyber">
+                                Cyber
+                            </label> 
+                            <br>
+                        </div>
+      
+                        <div class="form-outline mb-4">
+                            <label for="web2">
+                                <input type="checkbox" id="web2" name="web[]" value="desain">
+                                Desain
+                            </label>
+                            <br>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <label for="web3">
+                                <input type="checkbox" id="web3" name="web[]" value="full">
+                                Full
+                            </label>
+                            <br>
+                        </div>
+      
+                        <div class="text-center pt-1 mb-2 pb-1">
+                          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button" onclick="validateForm()">Lanjutkan</button>
+                          <a class="text-muted">KELAS A</a>
+                        </div>
+      
+                        <div class="d-flex align-items-center justify-content-center pb-4">
+                          <p class="mb-0 me-2">Manajemen Kampus Cerdas</p>
+                          
+                        </div>
+      
+                      </form>
+      
+                    </div>
+                  </div>
+                  <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                    <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                      <h4 class="mb-4">Find Ur Self</h4>
+                      <p class="small mb-0">Web ini dibuat dengan tujuan memudahkan orang orang khususnya mahasiswa sistem informasi uin raden intan
+                        lampung yang belum mengetahui jalannya untuk mempelajari programmer.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <script>
+        function validateForm() {
+            var checkboxes = document.getElementsByName('web[]');
+            var selectedWeb = [];
+
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    selectedWeb.push(checkboxes[i].value);
+                }
+            }
+
+            if (selectedWeb.length === 0) {
+                alert('Pilih setidaknya satu sebelum mengirim.');
+                return;
+            } else if (selectedWeb.length > 1) {
+                alert('Hanya boleh memilih satu. Tolong hapus seleksi yang tidak diperlukan.');
+                location.reload(); // Merefresh halaman web jika lebih dari satu checkbox dicentang
+                return;
+            }
+
+            var destination;
+
+            switch (selectedWeb[0]) {
+                case 'cyber':
+                    destination = 'rain_mkc/profil_cyber.html';
+                    break;
+                case 'desain':
+                    destination = 'rain_mkc/profil_design.html';
+                    break;
+                case 'full':
+                    destination = 'rain_mkc/profil_software.html';
+                    break;
+                default:
+                    alert('Pilih setidaknya satu sebelum mengirim.');
+                    return;
+            }
+
+            window.location.href = destination;
+        }
+    </script>
+</body>
+</html>
